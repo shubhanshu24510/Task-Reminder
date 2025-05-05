@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.TaskManager" parent="android:Theme.Material.Light.NoActionBar">
+    </style>
+    <style name="App.Starting.Theme" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFFFFF</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_transparent</item>
+        <item name="windowSplashScreenIconBackgroundColor">@color/white</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:statusBarColor">@color/white</item>
+        <item name="postSplashScreenTheme">@style/Theme.TaskManager</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
