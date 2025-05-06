@@ -7,7 +7,8 @@
 </p>
 
 <p align="center">  
-**Task Manager** is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, TaskFlow offers a smooth and intuitive user experience.</p>
+
+**Task Manager**is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, TaskFlow offers a smooth and intuitive user experience.</p>
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
@@ -22,15 +23,20 @@
 * **Work Anywhere**: Use the app completely offline — your tasks are stored securely on your device using Room Database.
 * **Track Progress**: Keep an eye on your productivity with a beautiful Circular Progress Bar that reflects task completion.
 
-🔑 Key Features:
-📦 Room Database: All your tasks are securely stored locally for offline access and fast performance.
-🎞️ Shared Animation Layout: Enjoy fluid and visually appealing transitions for a seamless UI experience.
-🧱 Clean Architecture: Built with industry-standard best practices (MVVM) for a scalable and maintainable codebase.
-📜 Nested Scroll Support: Enhanced scrolling behavior for smoother interaction across nested views.
-🔵 Circular Progress Bar: Instantly track your task completion with elegant visual indicators.
-🔍 Task Filtering & Sorting: Quickly sort and filter tasks by priority, date, or custom criteria.
-🧹 Swipe to Delete: Effortlessly manage your tasks with simple swipe gestures.
-🎨 Multiple App Themes: Personalize your experience with 6 vibrant themes, including a Dark Mode.
+---
+
+🔑 **Key Features**:  
+📦 **Room Database**: Securely store all your tasks locally for offline access and fast performance.  
+🎞️ **Shared Animation Layout**: Enjoy fluid and visually appealing transitions for a seamless UI experience.  
+🧱 **Clean Architecture**: Built with industry-standard best practices (MVVM) for a scalable and maintainable codebase.  
+📜 **Nested Scroll Support**: Enhanced scrolling behavior for smoother interaction across nested views.  
+🔵 **Circular Progress Bar**: Instantly track your task completion with elegant visual indicators.  
+🔍 **Task Filtering & Sorting**: Quickly sort and filter tasks by priority, date, or custom criteria.  
+🧹 **Swipe to Delete**: Effortlessly manage your tasks with simple swipe gestures.  
+🎨 **Multiple App Themes**: Personalize your experience with 6 vibrant themes, including a Dark Mode.  
+⏰ **Alarm Manager & Notifications**: Set reminders and get notified for your tasks on time!  
+
+---
 
 ## 🛠️ Tech Stack & Open-Source Libraries
 - Minimum SDK level 21.
