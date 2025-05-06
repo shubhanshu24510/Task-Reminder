@@ -8,7 +8,7 @@
 
 <p align="center">  
 
-**Task Manager**is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, TaskFlow offers a smooth and intuitive user experience.</p>
+**Task Manager** is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, TaskFlow offers a smooth and intuitive user experience.</p>
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
