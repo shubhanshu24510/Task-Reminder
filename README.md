@@ -29,7 +29,7 @@
   - Room: Constructs a database with an SQLite abstraction layer for seamless database access.
   - [Hilt](https://dagger.dev/hilt/): Facilitates dependency injection.
   - datastore:Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences.
-  - [lottieCompose]:(https://mvnrepository.com/artifact/com.airbnb.android/lottie-compose):allows developers to easily integrate Lottie animations into their Android apps using Jetpack Compose.
+  - [lottie-Compose](https://mvnrepository.com/artifact/com.airbnb.android/lottie-compose): allows developers to easily integrate Lottie animations into their Android apps using Jetpack Compose.
 - Architecture:
   - MVVM Architecture (View - ViewModel - Model): Facilitates separation of concerns and promotes maintainability.
   - Repository Pattern: Acts as a mediator between different data sources and the application's business logic.
