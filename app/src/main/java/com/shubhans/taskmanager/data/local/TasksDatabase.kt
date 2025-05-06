@@ -7,7 +7,8 @@ import com.shubhans.taskmanager.domain.model.Task
 
 @Database(
     entities = [Task::class],
-    version = 1
+    version = 1,
+    exportSchema = true
 )
 @TypeConverters(DateTimeConverter::class)
 abstract class TasksDatabase : RoomDatabase() {

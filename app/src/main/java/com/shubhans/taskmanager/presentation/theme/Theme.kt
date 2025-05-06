@@ -26,7 +26,6 @@ private val LightFirstColorScheme = lightColorScheme(
     outline = Color.Black
 )
 
-
 private val LightSecondScheme = lightColorScheme(
     primary = Orange,
     tertiary = LightBrown,

@@ -1,13 +1,23 @@
 package com.shubhans.taskmanager.presentation.navgraph
 
-sealed class Route(val route: String) {
-    data object HomeScreen: Route(route = "HomeScreen")
-    data object SettingsScreen: Route(route = "SettingsScreen")
+import kotlinx.serialization.Serializable
 
-    data object OnBoardingScreen: Route(route = "onBoardingScreen")
+sealed interface Route {
+    @Serializable
+    data object Home : Route
 
-    // Navigation
-    data object AppStartNavigation: Route(route = "appStartScreen")
-    data object AppMainNavigation: Route(route = "appMainScreen")
-    data object AppNavigatorScreen: Route("appNavigationScreen")
+    @Serializable
+    data object Setting : Route
+
+    @Serializable
+    data object OnBoarding : Route
+
+    @Serializable
+    data object AppStartNavigation : Route
+
+    @Serializable
+    data object AppMainNavigation : Route
+
+    @Serializable
+    data object AppNavigatorScreen : Route
 }

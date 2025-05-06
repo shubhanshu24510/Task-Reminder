@@ -12,7 +12,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.app.ActivityCompat
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.shubhans.taskmanager.presentation.AppNavGraph
+import androidx.navigation.compose.rememberNavController
+import com.shubhans.taskmanager.presentation.AppNavigation
 import com.shubhans.taskmanager.presentation.settings.ThemeViewModel
 import com.shubhans.taskmanager.presentation.theme.TaskManagerTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,11 +28,15 @@ class MainActivity : ComponentActivity() {
         setContent {
             val viewmodel: ThemeViewModel = hiltViewModel()
             val startDestination = viewmodel.startDestination
+            val navController = rememberNavController()
 
             val theme = viewmodel.selectedTheme.value
             TaskManagerTheme(selectedTheme = theme) {
                 if (startDestination != null) {
-                    AppNavGraph(startDestination)
+                    AppNavigation(
+                        startDestination = startDestination,
+                        navController = navController
+                    )
                 }
             }
         }

@@ -17,12 +17,11 @@ import javax.inject.Inject
 @HiltViewModel
 class ThemeViewModel @Inject constructor(
     private val themeUseCases: ThemeUseCases
-):ViewModel() {
-
+) : ViewModel() {
     private val _selectedTheme = mutableStateOf(AppTheme.LIGHT_FIRST)
     val selectedTheme = _selectedTheme
 
-    var startDestination by mutableStateOf<String?>(null)
+    var startDestination by mutableStateOf<Route?>(null)
         private set
 
     init {
@@ -30,25 +29,24 @@ class ThemeViewModel @Inject constructor(
         getTheme()
     }
 
-    private fun getAppEntry(){
+    private fun getAppEntry() {
         themeUseCases.getAppEntry().onEach {
-            startDestination = if (it) Route.AppMainNavigation.route else Route.AppStartNavigation.route
+            startDestination =
+                (if (it) Route.AppMainNavigation else Route.AppStartNavigation)
         }.launchIn(viewModelScope)
-
     }
 
-    private fun getTheme(){
+    private fun getTheme() {
         viewModelScope.launch {
-            themeUseCases.readAppTheme().collect{
+            themeUseCases.readAppTheme().collect {
                 _selectedTheme.value = AppTheme.valueOf(it)
             }
         }
     }
 
-    fun updateTheme(appTheme: AppTheme){
+    fun updateTheme(appTheme: AppTheme) {
         viewModelScope.launch {
             themeUseCases.saveAppTheme(appTheme.name)
         }
-
     }
 }

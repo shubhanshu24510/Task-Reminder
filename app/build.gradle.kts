@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.ksp)
 }
 
@@ -13,17 +14,23 @@ android {
 
     defaultConfig {
         applicationId = "com.shubhans.taskmanager"
-        minSdk = 29
+        minSdk = 26
         //noinspection OldTargetApi
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments["room.schemaLocation"] = "$projectDir/schemas"
+            }
+        }
     }
 
     buildTypes {
         release {
-            isMinifyEnabled = true
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -43,6 +50,8 @@ android {
 }
 
 dependencies {
+    //kotlin Serialization
+    implementation(libs.kotlin.serialization)
     // splash api
     implementation(libs.androidx.core.splashscreen)
     // data store

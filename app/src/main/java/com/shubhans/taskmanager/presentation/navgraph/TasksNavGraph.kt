@@ -51,7 +51,6 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun TasksNavGraph() {
-//    val context = LocalContext.current
     val navController = rememberNavController()
     val homeViewModel: HomeViewModel = hiltViewModel()
     val detailsViewModel: DetailsViewModel = hiltViewModel()
@@ -63,9 +62,11 @@ fun TasksNavGraph() {
     var task by remember { mutableStateOf<Task?>(null) }
 
     SharedTransitionLayout {
-        NavHost(navController = navController, startDestination = Route.HomeScreen.route) {
-
-            composable(Route.HomeScreen.route) {
+        NavHost(
+            navController = navController,
+            startDestination = Route.Home
+        ) {
+            composable<Route.Home> {
                 val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
                 var showBottomDialog by remember { mutableStateOf(false) }
                 if (showDialog.value && task != null) {
@@ -76,7 +77,6 @@ fun TasksNavGraph() {
                         showDialog = showDialog
                     )
                 }
-
                 if (showBottomDialog) {
                     CreateScreen(
                         event = {
@@ -93,17 +93,19 @@ fun TasksNavGraph() {
                         SnackbarHost(snackBarState)
                     },
                     topBar = {
-                        TopAppBar(title = { Text(text = "Task Manager") }, actions = {
-                            IconButton(onClick = {
-                                navController.navigate(Route.SettingsScreen.route)
-                            }) {
-                                Icon(
-                                    Icons.Default.Settings,
-                                    contentDescription = null,
-                                    tint = Color.Black
-                                )
-                            }
-                        })
+                        TopAppBar(
+                            title = { Text(text = "Task Manager") },
+                            actions = {
+                                IconButton(onClick = {
+                                    navController.navigate(Route.Setting)
+                                }) {
+                                    Icon(
+                                        Icons.Default.Settings,
+                                        contentDescription = null,
+                                        tint = Color.Black
+                                    )
+                                }
+                            })
                     },
                     floatingActionButton = {
                         FloatingActionButton(
@@ -144,8 +146,7 @@ fun TasksNavGraph() {
                 }
             }
 
-            composable(
-                Route.SettingsScreen.route,
+            composable<Route.Setting>(
                 enterTransition = {
                     slideInHorizontally(
                         initialOffsetX = { it },
@@ -159,11 +160,10 @@ fun TasksNavGraph() {
                     )
                 }
             ) {
-
                 SettingsScreen(
                     viewModel = themeViewModel,
                     navigateUp = {
-                        navController.navigate(Route.HomeScreen.route) {
+                        navController.navigate(Route.Home) {
                             popUpTo(0)
                         }
                     })

@@ -2,8 +2,10 @@ package com.shubhans.taskmanager.presentation
 
 import androidx.compose.runtime.Composable
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
 import com.shubhans.taskmanager.presentation.navgraph.Route
@@ -12,37 +14,30 @@ import com.shubhans.taskmanager.presentation.onboarding.OnBoardingScreen
 import com.shubhans.taskmanager.presentation.onboarding.OnBoardingViewModel
 
 @Composable
-fun AppNavGraph(
-    startDestination: String,
+fun AppNavigation(
+    navController: NavHostController,
+    startDestination: Route,
 ) {
-    val navController = rememberNavController()
-
     NavHost(
         navController = navController,
         startDestination = startDestination
     ) {
-        navigation(
-            route = Route.AppStartNavigation.route,
-            startDestination = Route.OnBoardingScreen.route
+        navigation<Route.AppStartNavigation>(
+            startDestination = Route.OnBoarding
         ) {
-            composable(
-                route = Route.OnBoardingScreen.route
-            ) {
+            composable<Route.OnBoarding> {
                 val viewModel: OnBoardingViewModel = hiltViewModel()
                 OnBoardingScreen(
                     event = viewModel::onEvent
                 )
             }
         }
-
-        navigation(
-            route = Route.AppMainNavigation.route,
-            startDestination = Route.AppNavigatorScreen.route
+        navigation<Route.AppMainNavigation>(
+            startDestination = Route.AppNavigatorScreen
         ) {
-            composable(route = Route.AppNavigatorScreen.route) {
+            composable<Route.AppNavigatorScreen> {
                 TasksNavGraph()
             }
-
         }
     }
 }

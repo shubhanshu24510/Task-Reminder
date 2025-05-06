@@ -39,8 +39,10 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
+import com.shubhans.taskmanager.R
 import com.shubhans.taskmanager.presentation.onboarding.components.OnBoarding
 import com.shubhans.taskmanager.presentation.theme.DarkGreen
 import kotlinx.coroutines.launch
@@ -64,6 +66,7 @@ fun OnBoardingScreen(event: (OnBoardingEvent) -> Unit) {
     ) {
         Column {
             HorizontalPager(pagerState) { index ->
+                //OnBoarding Page
                 OnBoarding(
                     page = pages[index],
                     selectedIndex = pagerState.currentPage,
@@ -129,7 +132,10 @@ fun OnBoardingScreen(event: (OnBoardingEvent) -> Unit) {
                                 }),
                         contentAlignment = Alignment.Center
                     ) {
-                        Text(text = "Start", color = Color.White)
+                        Text(
+                            text = stringResource(R.string.start),
+                            color = Color.White
+                        )
                     }
                 }
             } else {
@@ -145,7 +151,11 @@ fun OnBoardingScreen(event: (OnBoardingEvent) -> Unit) {
                     shape = RoundedCornerShape(14.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = DarkGreen)
                 ) {
-                    Text(text = "Next", modifier = Modifier.padding(6.dp))
+                    Text(
+                        text = stringResource(id = R.string.next),
+                        color = Color.White,
+                        modifier = Modifier.padding(6.dp)
+                    )
                 }
             }
         }

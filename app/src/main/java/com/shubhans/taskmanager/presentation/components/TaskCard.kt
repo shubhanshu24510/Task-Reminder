@@ -65,7 +65,6 @@ fun SharedTransitionScope.TaskCard(
             }
         }
     )
-
     SwipeToDismissBox(
         state = swipeToDismissBoxState,
         backgroundContent = {

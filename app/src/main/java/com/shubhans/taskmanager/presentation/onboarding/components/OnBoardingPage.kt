@@ -23,14 +23,21 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 
 @Composable
-fun OnBoarding(page: Page, selectedIndex: Int, pagesCount: Int) {
+fun OnBoarding(
+    page: Page,
+    selectedIndex: Int,
+    pagesCount: Int
+) {
     val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(page.animation))
     val progress by animateLottieCompositionAsState(
         composition = composition,
         iterations = LottieConstants.IterateForever
     )
     Column(
-        modifier = Modifier.padding(start = 16.dp, end = 16.dp),
+        modifier = Modifier.padding(
+            start = 16.dp,
+            end = 16.dp
+        ),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         LottieAnimation(
@@ -55,7 +62,6 @@ fun OnBoarding(page: Page, selectedIndex: Int, pagesCount: Int) {
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.height(36.dp))
-
     }
 }
 

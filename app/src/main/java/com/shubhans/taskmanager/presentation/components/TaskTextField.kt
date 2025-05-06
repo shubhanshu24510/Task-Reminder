@@ -19,12 +19,20 @@ fun TaskTextField(
     text: MutableState<String>
 ) {
     OutlinedTextField(
-        colors = OutlinedTextFieldDefaults.colors(unfocusedBorderColor = Color.Black),
+        colors = OutlinedTextFieldDefaults.colors(
+            unfocusedBorderColor = Color.Black,
+            focusedTextColor = Color.Black,
+            unfocusedTextColor = Color.Black.copy(alpha = 0.9f),
+        ),
         shape = RoundedCornerShape(8.dp),
         modifier = modifier.fillMaxWidth(),
         value = text.value,
         minLines = lines,
         onValueChange = { text.value = it },
-        label = { Text(text = placeHolder) },
+        label = {
+            Text(
+                text = placeHolder
+            )
+        },
     )
 }

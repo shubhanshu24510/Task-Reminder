@@ -18,6 +18,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
 import androidx.compose.material3.Text
@@ -29,10 +30,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.shubhans.taskmanager.R
 import com.shubhans.taskmanager.domain.model.Priority
 import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.presentation.components.PriorityDropDown
@@ -69,24 +72,24 @@ fun CreateScreen(
             ) {
                 Icon(Icons.Default.Add, contentDescription = null, modifier = Modifier.size(40.dp))
                 Text(
-                    text = "Add a Task",
+                    text = stringResource(R.string.add_a_task),
                     fontSize = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = "Fill the details below to add a task into your tasks list",
+                    text = stringResource(R.string.add_a_task_desc),
                     textAlign = TextAlign.Center,
                     modifier = Modifier.padding(8.dp)
                 )
                 TaskTextField(
-                    placeHolder = "Title",
+                    placeHolder = stringResource(R.string.task_title),
                     text = title
                 )
                 Spacer(modifier = Modifier.height(16.dp))
 
                 TaskTextField(
                     lines = 9,
-                    placeHolder = "Description",
+                    placeHolder = stringResource(R.string.description),
                     text = description
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -121,7 +124,11 @@ fun CreateScreen(
                     shape = RoundedCornerShape(8.dp),
                     elevation = ButtonDefaults.elevatedButtonElevation(2.dp),
                 ) {
-                    Text(text = "Add Task", fontSize = 18.sp, modifier = Modifier.padding(4.dp))
+                    Text(
+                        text = stringResource(id = R.string.add_task),
+                        fontSize = 18.sp,
+                        modifier = Modifier.padding(4.dp),
+                    )
                 }
             }
         }
