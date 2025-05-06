@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import com.shubhans.taskmanager.ui.theme.DarkGreen
-import com.shubhans.taskmanager.util.Dimens.IndicatorSize
+import com.shubhans.taskmanager.presentation.theme.DarkGreen
+import com.shubhans.taskmanager.presentation.util.Dimens.IndicatorSize
 
 @Composable
 fun PageIndicator(

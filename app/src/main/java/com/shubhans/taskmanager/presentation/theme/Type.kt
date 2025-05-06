@@ -1,4 +1,4 @@
-package com.shubhans.taskmanager.ui.theme
+package com.shubhans.taskmanager.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

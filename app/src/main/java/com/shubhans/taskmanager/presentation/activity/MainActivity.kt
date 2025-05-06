@@ -14,7 +14,7 @@ import androidx.core.app.ActivityCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.shubhans.taskmanager.presentation.AppNavGraph
 import com.shubhans.taskmanager.presentation.settings.ThemeViewModel
-import com.shubhans.taskmanager.ui.theme.TaskManagerTheme
+import com.shubhans.taskmanager.presentation.theme.TaskManagerTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

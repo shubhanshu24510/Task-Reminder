@@ -1,4 +1,4 @@
-package com.shubhans.taskmanager.ui.theme
+package com.shubhans.taskmanager.presentation.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

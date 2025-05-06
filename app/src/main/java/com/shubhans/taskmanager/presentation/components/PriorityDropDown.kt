@@ -30,8 +30,8 @@ import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import com.shubhans.taskmanager.util.Dimens.PRIORITY_DROP_DOWN_HEIGHT
-import com.shubhans.taskmanager.util.Dimens.PRIORITY_INDICATOR_SIZE
+import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_DROP_DOWN_HEIGHT
+import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
 import com.shubhans.taskmanager.domain.model.Priority
 
 @Composable

@@ -23,7 +23,7 @@ import com.shubhans.taskmanager.domain.usecases.tasks.GetTasksList
 import com.shubhans.taskmanager.domain.usecases.tasks.SetAlarm
 import com.shubhans.taskmanager.domain.usecases.tasks.TaskUseCases
 import com.shubhans.taskmanager.domain.usecases.tasks.UpsertTask
-import com.shubhans.taskmanager.util.Constants.TASKS_DB
+import com.shubhans.taskmanager.presentation.util.Constants.TASKS_DB
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

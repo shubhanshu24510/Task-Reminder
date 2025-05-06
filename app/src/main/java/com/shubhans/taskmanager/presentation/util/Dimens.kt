@@ -1,4 +1,4 @@
-package com.shubhans.taskmanager.util
+package com.shubhans.taskmanager.presentation.util
 
 import androidx.compose.ui.unit.dp
 

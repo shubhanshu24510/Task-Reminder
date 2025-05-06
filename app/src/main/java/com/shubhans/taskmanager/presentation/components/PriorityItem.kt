@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.shubhans.taskmanager.domain.model.Priority
-import com.shubhans.taskmanager.util.Dimens.LARGE_PADDING
-import com.shubhans.taskmanager.util.Dimens.PRIORITY_INDICATOR_SIZE
+import com.shubhans.taskmanager.presentation.util.Dimens.LARGE_PADDING
+import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
 
 @Composable
 fun PriorityItem(priority: Priority) {

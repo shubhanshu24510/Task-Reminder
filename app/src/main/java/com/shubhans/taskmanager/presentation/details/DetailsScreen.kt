@@ -38,7 +38,7 @@ import com.shubhans.taskmanager.domain.model.Priority
 import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.presentation.components.TaskDateTimePicker
 import com.shubhans.taskmanager.presentation.components.TaskTopAppBar
-import com.shubhans.taskmanager.util.Dimens.PRIORITY_INDICATOR_SIZE
+import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
 
 @Composable
 fun DetailsScreen(

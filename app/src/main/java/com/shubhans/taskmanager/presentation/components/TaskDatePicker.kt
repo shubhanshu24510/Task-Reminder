@@ -22,8 +22,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.shubhans.taskmanager.domain.model.AppTheme
-import com.shubhans.taskmanager.ui.theme.TaskManagerTheme
-import com.shubhans.taskmanager.util.convertDate
+import com.shubhans.taskmanager.presentation.theme.TaskManagerTheme
+import com.shubhans.taskmanager.presentation.util.convertDate
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime

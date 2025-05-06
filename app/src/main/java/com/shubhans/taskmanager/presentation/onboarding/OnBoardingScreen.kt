@@ -42,7 +42,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.shubhans.taskmanager.presentation.onboarding.components.OnBoarding
-import com.shubhans.taskmanager.ui.theme.DarkGreen
+import com.shubhans.taskmanager.presentation.theme.DarkGreen
 import kotlinx.coroutines.launch
 import kotlin.math.roundToInt
 

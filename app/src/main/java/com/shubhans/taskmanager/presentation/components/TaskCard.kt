@@ -36,9 +36,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.shubhans.taskmanager.util.Dimens.PRIORITY_INDICATOR_SIZE
-import com.shubhans.taskmanager.util.convertDate
-import com.shubhans.taskmanager.util.convertToListTime
+import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
+import com.shubhans.taskmanager.presentation.util.convertDate
+import com.shubhans.taskmanager.presentation.util.convertToListTime
 import com.shubhans.taskmanager.domain.model.Task
 import kotlinx.coroutines.launch
 

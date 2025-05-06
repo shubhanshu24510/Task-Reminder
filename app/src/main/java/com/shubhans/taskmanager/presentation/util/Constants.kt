@@ -1,4 +1,4 @@
-package com.shubhans.taskmanager.util
+package com.shubhans.taskmanager.presentation.util
 
 object Constants {
     const val TASKS_DB = "Tasks"

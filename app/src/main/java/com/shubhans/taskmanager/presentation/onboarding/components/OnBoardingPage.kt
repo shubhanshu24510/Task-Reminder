@@ -15,7 +15,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.shubhans.taskmanager.presentation.onboarding.Page
-import com.shubhans.taskmanager.ui.theme.DarkGreen
+import com.shubhans.taskmanager.presentation.theme.DarkGreen
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants

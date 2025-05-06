@@ -9,7 +9,7 @@ import android.provider.Settings
 import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.domain.repository.AlarmScheduler
 import com.shubhans.taskmanager.presentation.alarm.ReminderReceiver
-import com.shubhans.taskmanager.util.convertToTime
+import com.shubhans.taskmanager.presentation.util.convertToTime
 
 class AlarmRepositoryImpl(private val context: Context) : AlarmScheduler {
     override fun schedule(triggerAtMillis: Long, task: Task) {

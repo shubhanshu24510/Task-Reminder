@@ -14,10 +14,10 @@ android {
     defaultConfig {
         applicationId = "com.shubhans.taskmanager"
         minSdk = 29
+        //noinspection OldTargetApi
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -47,7 +47,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     // data store
     implementation(libs.androidx.datastore.preferences)
-    implementation (libs.androidx.datastore.core)
+    implementation(libs.androidx.datastore.core)
     implementation(libs.lottie.compose)
     //animation
     implementation(libs.androidx.animation)
