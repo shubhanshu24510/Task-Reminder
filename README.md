@@ -11,10 +11,10 @@
 </p>
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/ac86fd49-06b5-4dd0-827f-a1306126f5d0"/>
+<img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
 </p> 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
+<img src="https://github.com/user-attachments/assets/ac86fd49-06b5-4dd0-827f-a1306126f5d0"/>
 </p> 
 
 ## Tech stack & Open-source libraries
