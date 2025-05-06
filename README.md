@@ -8,7 +8,7 @@
 
 <p align="center">  
 
-**Task Manager** is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, TaskFlow offers a smooth and intuitive user experience.</p>
+**Task Manager** is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, offers a smooth and intuitive user experience.</p>
 
 <p align="center">
 <img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
@@ -41,7 +41,7 @@
 ## 🛠️ Tech Stack & Open-Source Libraries
 - Minimum SDK level 21.
 - [Kotlin](https://kotlinlang.org/) based, utilizing [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous operations.
-- 
+
 ### 🔧 Jetpack & Android Libraries:
   - Jetpack Compose: Android’s modern toolkit for declarative UI development.
   - Lifecycle: Observes Android lifecycles and manages UI states upon lifecycle changes.
@@ -95,8 +95,6 @@ The UI layer encompasses UI elements responsible for configuring screens for use
 ![architecture](https://github.com/user-attachments/assets/0bdebc42-69a1-41a2-ad8f-d57d3cbf9124)
 
 The data layer is composed of repositories that handle business logic tasks such as retrieving data from a local database or fetching remote data from a network. This layer is designed to prioritize offline access, functioning primarily as an offline-first repository of business logic. It adheres to the principle of "single source of truth," ensuring that all data operations are centralized and consistent.<br>
-
-**Task Manager** is an offline-first app, meaning it can perform all or most of its essential functions without an internet connection. This design allows users to access core features reliably, regardless of network availability, reducing their need for constant updates and decreasing data usage. For more details on how to build an offline-first application, you can visit [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first).
 
 ## Modularization
 
