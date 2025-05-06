@@ -28,26 +28,24 @@
   - Navigation: Facilitates screen navigation, complemented by [Hilt Navigation Compose](https://developer.android.com/jetpack/compose/libraries#hilt) for dependency injection.
   - Room: Constructs a database with an SQLite abstraction layer for seamless database access.
   - [Hilt](https://dagger.dev/hilt/): Facilitates dependency injection.
+  - datastore:Store data asynchronously, consistently, and transactionally, overcoming some of the drawbacks of SharedPreferences.
+  - [lottieCompose]:(https://mvnrepository.com/artifact/com.airbnb.android/lottie-compose):allows developers to easily integrate Lottie animations into their Android apps using Jetpack Compose.
 - Architecture:
   - MVVM Architecture (View - ViewModel - Model): Facilitates separation of concerns and promotes maintainability.
   - Repository Pattern: Acts as a mediator between different data sources and the application's business logic.
-- [Retrofit2 & OkHttp3](https://github.com/square/retrofit): Constructs REST APIs and facilitates paging network data retrieval.
-- [Sandwich](https://github.com/skydoves/Sandwich): Adaptable and lightweight sealed API library designed for handling API responses and exceptions in Kotlin for Retrofit, Ktor, and Kotlin Multiplatform.
 - [Kotlin Serialization](https://github.com/Kotlin/kotlinx.serialization): Kotlin multiplatform / multi-format reflectionless serialization.
 - [ksp](https://github.com/google/ksp): Kotlin Symbol Processing API for code generation and analysis.
 - [Turbine](https://github.com/cashapp/turbine): A small testing library for kotlinx.coroutines Flow.
-- [Landscapist Glide](https://github.com/skydoves/landscapist#glide), [animation](https://github.com/skydoves/landscapist#animation), [placeholder](https://github.com/skydoves/landscapist#placeholder): A pluggable, highly optimized Jetpack Compose and Kotlin Multiplatform image loading library that fetches and displays network images with Glide, Coil, and Fresco.
 - [Baseline Profiles](https://medium.com/proandroiddev/improve-your-android-app-performance-with-baseline-profiles-297f388082e6): Enhances app performance by including specifications of classes and methods in the APK that can be utilized by Android Runtime.
 
-
 ## Architecture
-**Pokedex Jetpack** adheres to the MVVM architecture and implements the Repository pattern, aligning with [Google's official architecture guidance](https://developer.android.com/topic/architecture).
+**Task Manager** adheres to the MVVM architecture and implements the Repository pattern, aligning with [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
 ![architecture](https://github.com/user-attachments/assets/09ca369a-968a-435e-bb89-f1856120bac5)
 
 The architecture of **Pokedex Jetpack** is structured into two distinct layers: the UI layer and the data layer. Each layer fulfills specific roles and responsibilities, outlined as follows:
 
-**Pokedex Jetpack** follows the principles outlined in the [Guide to app architecture](https://developer.android.com/topic/architecture), making it an exemplary demonstration of architectural concepts in practical application.
+**Task Manager** follows the principles outlined in the [Guide to app architecture](https://developer.android.com/topic/architecture), making it an exemplary demonstration of architectural concepts in practical application.
 
 ### Architecture Overview
 
@@ -71,11 +69,11 @@ The UI layer encompasses UI elements responsible for configuring screens for use
 
 The data layer is composed of repositories that handle business logic tasks such as retrieving data from a local database or fetching remote data from a network. This layer is designed to prioritize offline access, functioning primarily as an offline-first repository of business logic. It adheres to the principle of "single source of truth," ensuring that all data operations are centralized and consistent.<br>
 
-**Pokedex Compose** is an offline-first app, meaning it can perform all or most of its essential functions without an internet connection. This design allows users to access core features reliably, regardless of network availability, reducing their need for constant updates and decreasing data usage. For more details on how to build an offline-first application, you can visit [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first).
+**Task Manager** is an offline-first app, meaning it can perform all or most of its essential functions without an internet connection. This design allows users to access core features reliably, regardless of network availability, reducing their need for constant updates and decreasing data usage. For more details on how to build an offline-first application, you can visit [Build an offline-first app](https://developer.android.com/topic/architecture/data-layer/offline-first).
 
 ## Modularization
 
-**Pokedex Compose** adopted modularization strategies below:
+**Task Manager** adopted modularization strategies below:
 
 - **Reusability**: Modulizing reusable codes properly enable opportunities for code sharing and limits code accessibility in other modules at the same time.
 - **Parallel Building**: Each module can be run in parallel and it reduces the build time.
@@ -83,13 +81,6 @@ The data layer is composed of repositories that handle business logic tasks such
 - **Decentralized focusing**: Each developer team can assign their dedicated module and they can focus on their own modules.
 
 For more information, check out the [Guide to Android app modularization](https://developer.android.com/topic/modularization).
-
-## Open API
-
-<img src="https://user-images.githubusercontent.com/24237865/83422649-d1b1d980-a464-11ea-8c91-a24fdf89cd6b.png" align="right" width="21%"/>
-
-Pokedex using the [PokeAPI](https://pokeapi.co/) for constructing RESTful API.<br>
-PokeAPI provides a RESTful API interface to highly detailed objects built from thousands of lines of data related to Pokémon.
 
 ## Find this repository useful? :heart:
 Support it by joining  __[follow me](https://github.com/shubhanshu24510)__ on GitHub for my next creations! 🤩
