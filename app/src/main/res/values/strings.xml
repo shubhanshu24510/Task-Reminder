@@ -7,4 +7,6 @@
     <string name="add_a_task">Add a Task</string>
     <string name="add_a_task_desc">Fill the details below to add a task into your tasks list</string>
     <string name="task_title">Title</string>
+    <string name="select_theme">Select Theme</string>
+    <string name="save">Save</string>
 </resources>

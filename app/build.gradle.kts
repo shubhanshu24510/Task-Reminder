@@ -50,6 +50,8 @@ android {
 }
 
 dependencies {
+    //color Picker
+    implementation(libs.compose.colorpicker)
     //kotlin Serialization
     implementation(libs.kotlin.serialization)
     // splash api
