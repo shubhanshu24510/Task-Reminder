@@ -1,4 +1,4 @@
-<h1 align="center">Task Manager🚀</h1>
+<h1 align="center">Task Reminder🚀</h1>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">  
-<b>Task Manager</b> is a sleek and efficient <b>Offline First</b> task management app designed to keep you organized and on track. Easily add tasks with custom dates and times, and let the app handle the rest. Using <b>Alarm Manager</b> and Notification Services, Task Manager ensures you never miss a task by sending timely reminders—even without an internet connection.
+<b>Task Reminder</b> is a sleek and efficient <b>Offline First</b> task management app designed to keep you organized and on track. Easily add tasks with custom dates and times, and let the app handle the rest. Using <b>Alarm Manager</b> and Notification Services, Task Manager ensures you never miss a task by sending timely reminders—even without an internet connection.
 </p>
 
 ---
@@ -69,13 +69,13 @@
 * **[Baseline Profiles](https://medium.com/proandroiddev/improve-your-android-app-performance-with-baseline-profiles-297f388082e6)**: Optimizes runtime performance by pre-compiling critical code paths in your app.
 
 ## Architecture
-**Task Manager** adheres to the MVVM architecture and implements the Repository pattern, aligning with [Google's official architecture guidance](https://developer.android.com/topic/architecture).
+**Task Reminder** adheres to the MVVM architecture and implements the Repository pattern, aligning with [Google's official architecture guidance](https://developer.android.com/topic/architecture).
 
 ![architecture](https://github.com/user-attachments/assets/09ca369a-968a-435e-bb89-f1856120bac5)
 
 The architecture of **Pokedex Jetpack** is structured into two distinct layers: the UI layer and the data layer. Each layer fulfills specific roles and responsibilities, outlined as follows:
 
-**Task Manager** follows the principles outlined in the [Guide to app architecture](https://developer.android.com/topic/architecture), making it an exemplary demonstration of architectural concepts in practical application.
+**Task Reminder** follows the principles outlined in the [Guide to app architecture](https://developer.android.com/topic/architecture), making it an exemplary demonstration of architectural concepts in practical application.
 
 ### Architecture Overview
 
@@ -101,7 +101,7 @@ The data layer is composed of repositories that handle business logic tasks such
 
 ## Modularization
 
-**Task Manager** adopted modularization strategies below:
+**Task Reminder** adopted modularization strategies below:
 
 - **Reusability**: Modulizing reusable codes properly enable opportunities for code sharing and limits code accessibility in other modules at the same time.
 - **Parallel Building**: Each module can be run in parallel and it reduces the build time.
