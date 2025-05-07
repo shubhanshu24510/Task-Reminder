@@ -9,20 +9,20 @@
 <p align="center">  
 
 **Task Manager** is a sleek and powerful task management app designed to help you stay organized and productive. Built with a modern Android architecture and a focus on performance, usability, and customization, offers a smooth and intuitive user experience.</p>
-
+---
+<!-- Simulate light green background using an image row with alt text -->
 <p align="center">
-<img src="https://github.com/user-attachments/assets/e1769fd7-c4df-4f29-8779-878542dbc619"/>
-</p> 
-<p align="center">
-<img src="https://github.com/user-attachments/assets/ac86fd49-06b5-4dd0-827f-a1306126f5d0"/>
-</p> 
+  <img src="https://github.com/user-attachments/assets/1deff5f2-daae-47e3-a641-40d019a4b8ee" alt="screen-2" width="260"/>
+  <img src="https://github.com/user-attachments/assets/3c37dbe3-1238-4b7d-a4bc-c66157838d54" alt="screen-3" width="260"/>
+  <img src="https://github.com/user-attachments/assets/2f915544-1ca9-4ee5-8b00-b04b9f5020e9" alt="screen-1" width="260"/>
+</p>
+---
 
 ## ✨ **What Does It Do?**
 * **Organize Your Life**: Add, edit, and manage tasks through an intuitive and responsive interface.
 * **Stay Notified**: Set reminders and alarms so you never miss an important deadline.
 * **Work Anywhere**: Use the app completely offline — your tasks are stored securely on your device using Room Database.
 * **Track Progress**: Keep an eye on your productivity with a beautiful Circular Progress Bar that reflects task completion.
-
 ---
 
 🔑 **Key Features**:  
