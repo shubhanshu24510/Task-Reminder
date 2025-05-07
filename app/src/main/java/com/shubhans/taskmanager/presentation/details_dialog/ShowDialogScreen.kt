@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package com.shubhans.taskmanager.presentation.details
+package com.shubhans.taskmanager.presentation.details_dialog
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -41,7 +41,7 @@ import com.shubhans.taskmanager.presentation.components.TaskTopAppBar
 import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
 
 @Composable
-fun DetailsScreen(
+fun ShowDialogScreen(
     task: Task,
     event: (DetailsEvent) -> Unit,
     navigateUp: () -> Unit,
@@ -67,7 +67,9 @@ fun DetailsScreen(
 
             ) {
                 TaskTopAppBar(
-                    title = task.title, taskBoolean = task.done, onDeleteClick = {
+                    title = task.title,
+                    taskBoolean = task.done,
+                    onDeleteClick = {
                         event(DetailsEvent.DeleteTask(task))
                         navigateUp()
                     },
@@ -96,14 +98,20 @@ fun DetailsScreen(
                         focusedContainerColor = Color.Transparent,
                         focusedIndicatorColor = Color.Transparent
                     ),
-                    shape = RoundedCornerShape(8.dp),
+                    shape = RoundedCornerShape(16.dp),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 12.dp, end = 12.dp, top = 4.dp),
                     value = description,
                     minLines = 5,
                     onValueChange = { description = it },
-                    placeholder = { Text(text = "Description") },
+                    placeholder = {
+                        Text(
+                            text = "Description",
+                            fontSize = 10.sp,
+                            color = Color.DarkGray
+                        )
+                    },
                 )
                 Spacer(modifier = Modifier.height(12.dp))
 

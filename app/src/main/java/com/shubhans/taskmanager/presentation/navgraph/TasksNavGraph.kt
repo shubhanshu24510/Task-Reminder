@@ -34,20 +34,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.presentation.create.CreateScreen
 import com.shubhans.taskmanager.presentation.create.CreateViewModel
-import com.shubhans.taskmanager.presentation.details.DetailsScreen
-import com.shubhans.taskmanager.presentation.details.DetailsViewModel
+import com.shubhans.taskmanager.presentation.details_dialog.DetailsViewModel
+import com.shubhans.taskmanager.presentation.details_dialog.ShowDialogScreen
 import com.shubhans.taskmanager.presentation.home.HomeEvent
 import com.shubhans.taskmanager.presentation.home.HomeScreen
 import com.shubhans.taskmanager.presentation.home.HomeViewModel
 import com.shubhans.taskmanager.presentation.settings.SettingsScreen
 import com.shubhans.taskmanager.presentation.settings.ThemeViewModel
-import com.shubhans.taskmanager.domain.model.Task
 import kotlinx.coroutines.launch
 
 @Composable
@@ -71,7 +70,7 @@ fun TasksNavGraph() {
                 val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
                 var showBottomDialog by remember { mutableStateOf(false) }
                 if (showDialog.value && task != null) {
-                    DetailsScreen(
+                    ShowDialogScreen(
                         task!!,
                         event = detailsViewModel::onEvent,
                         navigateUp = { showDialog.value = false },

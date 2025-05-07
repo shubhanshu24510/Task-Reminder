@@ -33,7 +33,7 @@ fun TaskTopAppBar(
     TopAppBar(
         title = {
             TextField(
-                placeholder = { Text(text = "Title") },
+                placeholder = { Text(text = "title") },
                 value = changeTitle,
                 onValueChange = { changeTitle = it },
                 colors = TextFieldDefaults.colors(
@@ -47,20 +47,32 @@ fun TaskTopAppBar(
         },
         navigationIcon = {
             RadioButton(
-                selected = radioStatus, colors = RadioButtonDefaults.colors(
-                    disabledSelectedColor = Color.Black,
-                    disabledUnselectedColor = Color.Black,
-                    selectedColor = MaterialTheme.colorScheme.primary, unselectedColor = Color.Black
-                ), onClick = {
+                selected = radioStatus,
+                colors = RadioButtonDefaults.colors(
+                    disabledSelectedColor = Color.DarkGray,
+                    disabledUnselectedColor = Color.DarkGray,
+                    selectedColor = MaterialTheme.colorScheme.primary,
+                    unselectedColor = Color.DarkGray
+                ),
+                onClick = {
                     radioStatus = !radioStatus
-                })
+                },
+            )
         },
         actions = {
             IconButton(onClick = { onDeleteClick() }) {
-                Icon(Icons.Default.Delete, contentDescription = null)
+                Icon(
+                    Icons.Default.Delete,
+                    tint = Color.DarkGray,
+                    contentDescription = null
+                )
             }
             IconButton(onClick = { onDoneClick(changeTitle, radioStatus) }) {
-                Icon(Icons.Default.Check, contentDescription = null, tint = Color.Black)
+                Icon(
+                    Icons.Default.Check,
+                    tint = Color.DarkGray,
+                    contentDescription = null
+                )
             }
         }
     )

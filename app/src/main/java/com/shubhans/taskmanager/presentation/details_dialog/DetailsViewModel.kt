@@ -1,4 +1,4 @@
-package com.shubhans.taskmanager.presentation.details
+package com.shubhans.taskmanager.presentation.details_dialog
 
 import androidx.lifecycle.ViewModel
 import com.shubhans.taskmanager.domain.model.Task

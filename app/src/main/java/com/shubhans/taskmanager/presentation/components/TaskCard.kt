@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.shubhans.taskmanager.presentation.util.Dimens.PRIORITY_INDICATOR_SIZE
@@ -95,9 +96,8 @@ fun SharedTransitionScope.TaskCard(
                     selected = task.done, onClick = {
                         onRadioClicked(task)
                     }, modifier = Modifier.size(16.dp), colors = RadioButtonDefaults.colors(
-                        disabledSelectedColor = Color.Black,
-                        disabledUnselectedColor = Color.Black,
-                        selectedColor = selectedColor, unselectedColor = Color.Black
+                        selectedColor = selectedColor,
+                        unselectedColor = MaterialTheme.colorScheme.onBackground,
                     )
                 )
                 // the line from the circle to the end of the screen
@@ -130,6 +130,8 @@ fun SharedTransitionScope.TaskCard(
                         ) {
                             Text(
                                 text = task.title,
+                                color = Color.Black,
+                                fontWeight = FontWeight.Bold
                             )
                             Canvas(modifier = Modifier.size(PRIORITY_INDICATOR_SIZE)) {
                                 drawCircle(color = task.priority.color)
@@ -138,12 +140,14 @@ fun SharedTransitionScope.TaskCard(
                         Text(
                             text = task.description,
                             modifier = Modifier.padding(start = 12.dp),
-                            color = Color.Gray
+                            color = Color.DarkGray,
+                            fontWeight = FontWeight.SemiBold
                         )
                         Text(
                             text = task.dueDate.convertDate(),
                             modifier = Modifier.padding(start = 12.dp, bottom = 12.dp),
-                            color = Color.Gray
+                            color = Color.Black,
+                            fontWeight = FontWeight.SemiBold
                         )
                     }
                     HorizontalDivider(
