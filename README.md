@@ -7,7 +7,8 @@
 </p>
 
 <p align="center">  
-**Task Manager** is a sleek and efficient **Offline First** task management app designed to keep you organized and on track. Easily add tasks with custom dates and times, and let the app handle the rest. Using **Alarm Manager** and Notification Services, Task Manager ensures you never miss a task by sending timely reminders—even without an internet connection.</p>
+<b>Task Manager</b> is a sleek and efficient <b>Offline First</b> task management app designed to keep you organized and on track. Easily add tasks with custom dates and times, and let the app handle the rest. Using <b>Alarm Manager</b> and Notification Services, Task Manager ensures you never miss a task by sending timely reminders—even without an internet connection.
+</p>
 
 ---
 ## ✨ **Preview**
