@@ -19,10 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.shubhans.taskmanager.domain.model.AppTheme
-import com.shubhans.taskmanager.presentation.theme.TaskManagerTheme
 import com.shubhans.taskmanager.presentation.util.convertDate
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -106,20 +103,3 @@ fun TaskDateTimePicker(
     }
 }
 
-@Preview
-@Composable
-fun TimeBack() {
-    TaskManagerTheme(selectedTheme = AppTheme.LIGHT_FIRST) {
-        TaskDateTimePicker(onTimeChanged = {}, onDateChanged = {})
-//        Column(modifier = Modifier.padding(16.dp)) {
-//            Button(onClick = { }) {
-//                Text("Pick Date: ")
-//            }
-//
-//            Button(onClick = {  }) {
-//                Text("Pick Time: ")
-//            }
-//
-//        }
-    }
-}

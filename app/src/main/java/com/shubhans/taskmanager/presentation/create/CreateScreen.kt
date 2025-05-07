@@ -35,12 +35,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.shubhans.taskmanager.R
 import com.shubhans.taskmanager.domain.model.Priority
 import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.presentation.components.PriorityDropDown
 import com.shubhans.taskmanager.presentation.components.TaskTextField
 import com.shubhans.taskmanager.presentation.components.TaskDateTimePicker
+import com.shubhans.taskmanager.presentation.settings.ThemeViewModel
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -49,6 +51,7 @@ fun CreateScreen(
     event: (CreateScreenEvent) -> Unit,
     sheetState: SheetState,
     onDismiss: () -> Unit,
+    themeViewModel: ThemeViewModel = hiltViewModel(),
 ) {
     var priority by remember { mutableStateOf(Priority.LOW) }
     val title = remember { mutableStateOf("") }
@@ -123,6 +126,7 @@ fun CreateScreen(
                     modifier = Modifier.fillMaxWidth(),
                     shape = RoundedCornerShape(8.dp),
                     elevation = ButtonDefaults.elevatedButtonElevation(2.dp),
+                    colors = ButtonDefaults.buttonColors(themeViewModel.selectedTheme)
                 ) {
                     Text(
                         text = stringResource(id = R.string.add_task),

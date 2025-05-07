@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
 
             val theme = viewmodel.selectedTheme.value
-            TaskManagerTheme(selectedTheme = theme) {
+            TaskManagerTheme {
                 if (startDestination != null) {
                     AppNavigation(
                         startDestination = startDestination,
@@ -59,17 +59,15 @@ class MainActivity : ComponentActivity() {
 }
 
 fun createNotificationChannel(context: Context) {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        val name = "Reminders"
-        val descriptionText = "Channel for task reminders"
-        val importance = NotificationManager.IMPORTANCE_HIGH
-        val channel = NotificationChannel("reminder_channel", name, importance).apply {
-            description = descriptionText
-        }
-        val notificationManager: NotificationManager =
-            context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        notificationManager.createNotificationChannel(channel)
+    val name = "Reminders"
+    val descriptionText = "Channel for task reminders"
+    val importance = NotificationManager.IMPORTANCE_HIGH
+    val channel = NotificationChannel("reminder_channel", name, importance).apply {
+        description = descriptionText
     }
+    val notificationManager: NotificationManager =
+        context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    notificationManager.createNotificationChannel(channel)
 }
 
 

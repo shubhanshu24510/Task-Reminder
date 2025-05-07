@@ -2,108 +2,153 @@
 
 package com.shubhans.taskmanager.presentation.settings
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
-import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Scaffold
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ImageBitmap
-import androidx.compose.ui.graphics.Paint
-import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.github.skydoves.colorpicker.compose.AlphaSlider
-import com.github.skydoves.colorpicker.compose.ColorEnvelope
+import com.github.skydoves.colorpicker.compose.AlphaTile
+import com.github.skydoves.colorpicker.compose.BrightnessSlider
+import com.github.skydoves.colorpicker.compose.ColorPickerController
 import com.github.skydoves.colorpicker.compose.HsvColorPicker
-import com.github.skydoves.colorpicker.compose.PaletteContentScale
+import com.github.skydoves.colorpicker.compose.drawColorIndicator
 import com.github.skydoves.colorpicker.compose.rememberColorPickerController
 import com.shubhans.taskmanager.R
-import com.shubhans.taskmanager.domain.model.AppTheme
-import kotlinx.coroutines.processNextEventInCurrentThread
+import com.shubhans.taskmanager.presentation.navgraph.Route
 
 @Composable
 fun SettingsScreen(
-    viewModel: ThemeViewModel, navigateUp: () -> Unit
+    viewModel: ThemeViewModel,
+    navigateUp: () -> Unit,
+    navController: NavController,
 ) {
-    val selectedTheme = viewModel.selectedTheme.value
-    val controller = rememberColorPickerController()
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(R.string.select_theme)) },
-                navigationIcon = {
-                    IconButton(
-                        onClick = {
-                            navigateUp()
-                        }) {
-                        Icon(
-                            Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null
-                        )
-                    }
-                })
-        }, modifier = Modifier
-            .padding(bottom = 12.dp)
-            .statusBarsPadding()
-    ) { innerPadding ->
-        HsvColorPicker(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(450.dp)
-                .padding(10.dp)
-                .padding(innerPadding),
-            controller = controller,
-            onColorChanged = { colorEnvelope ->
-                colorEnvelope.color
-                colorEnvelope.hexCode
-                colorEnvelope.fromUser
+    val controller: ColorPickerController = rememberColorPickerController()
+    var hexCode by remember { mutableStateOf("") }
+    var textColor by remember { mutableStateOf(Color.Transparent) }
+    Column {
+        TopAppBar(
+            title = {
+                Text(
+                    text = stringResource(id = R.string.select_theme),
+                    color = MaterialTheme.colorScheme.onBackground,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            },
+            navigationIcon = {
+                IconButton(onClick = { navigateUp() }) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.onBackground
+                    )
+                }
             },
         )
-        AlphaSlider(
-            wheelRadius = 30.dp,
-            wheelColor = Color.White,
-            controller = controller,
-            borderColor = Color.LightGray,
-            borderRadius = 6.dp,
-            borderSize = 5.dp,
-        )
+        Box(modifier = Modifier.weight(4f)) {
+            HsvColorPicker(
+                modifier = Modifier.padding(50.dp),
+                controller = controller,
+                drawOnPosSelected = {
+                    drawColorIndicator(
+                        pos = controller.selectedPoint.value,
+                        color = controller.selectedColor.value,
+                    )
+                },
+                onColorChanged = { colorEnvelope ->
+                    hexCode = colorEnvelope.hexCode
+                    textColor = colorEnvelope.color
+                },
+                initialColor = Color.Blue,
+            )
+        }
+        Spacer(modifier = Modifier.height(20.dp))
 
-        Spacer(modifier = Modifier.height(10.dp))
         AlphaSlider(
-            wheelRadius = 30.dp,
-            wheelColor = Color.White,
+            modifier = Modifier
+                .testTag("HSV_AlphaSlider")
+                .fillMaxWidth()
+                .padding(horizontal = 20.dp)
+                .height(35.dp),
             controller = controller,
-            borderColor = Color.LightGray,
-            borderRadius = 6.dp,
-            borderSize = 5.dp,
         )
+        Spacer(modifier = Modifier.height(20.dp))
 
-        Button(
-            onClick = {},
+        BrightnessSlider(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 10.dp),
-        ) {
-            Text(text = stringResource(R.string.save))
+                .padding(horizontal = 20.dp)
+                .height(35.dp),
+            controller = controller,
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+
+        Text(
+            text = "#$hexCode",
+            color = textColor,
+            fontSize = 18.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        AlphaTile(
+            modifier = Modifier
+                .size(80.dp)
+                .clip(RoundedCornerShape(6.dp))
+                .align(Alignment.CenterHorizontally),
+            controller = controller,
+        )
+        Spacer(modifier = Modifier.height(40.dp))
+
+        Button(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 50.dp)
+                .align(Alignment.CenterHorizontally), colors = ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.onBackground,
+                contentColor = MaterialTheme.colorScheme.background,
+            ), onClick = {
+                viewModel.updateTheme(textColor)
+                navController.navigate(Route.Home)
+            }) {
+            Text(
+                text = stringResource(id = R.string.save),
+                fontSize = 18.sp,
+                textAlign = TextAlign.Center,
+                fontWeight = FontWeight.Bold
+            )
         }
+        Spacer(modifier = Modifier.weight(0.8f))
     }
 }
 
@@ -138,6 +183,12 @@ fun SettingsScreen(
 //
 //        }
 //    }
+//}
+
+//@Preview(showBackground = true)
+//@Composable
+//private fun SettingScreenPreview() {
+//    SettingScreen()
 //}
 
 

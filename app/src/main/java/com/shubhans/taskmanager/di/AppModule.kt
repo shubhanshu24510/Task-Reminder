@@ -13,8 +13,8 @@ import com.shubhans.taskmanager.domain.repository.AlarmScheduler
 import com.shubhans.taskmanager.domain.repository.TasksRepository
 import com.shubhans.taskmanager.domain.usecases.tasks.AlarmUseCase
 import com.shubhans.taskmanager.domain.usecases.app_entry.GetAppEntry
+import com.shubhans.taskmanager.domain.usecases.app_entry.GetSavedTheme
 import com.shubhans.taskmanager.domain.usecases.app_entry.SaveAppEntry
-import com.shubhans.taskmanager.domain.usecases.app_theme.GetAppTheme
 import com.shubhans.taskmanager.domain.usecases.app_theme.SaveAppTheme
 import com.shubhans.taskmanager.domain.usecases.app_theme.ThemeUseCases
 import com.shubhans.taskmanager.domain.usecases.tasks.CancelAlarm
@@ -51,7 +51,6 @@ object AppModule {
             .build()
     }
 
-
     @Provides
     @Singleton
     fun provideDao(
@@ -61,7 +60,6 @@ object AppModule {
     @Provides
     @Singleton
     fun provideTasksRepository(tasksDao: TasksDao): TasksRepository = TasksRepositoryImpl(tasksDao)
-
 
     @Provides
     @Singleton
@@ -79,12 +77,11 @@ object AppModule {
     @Provides
     @Singleton
     fun provideThemeUseCases(localUserManager: LocalUserManager): ThemeUseCases = ThemeUseCases(
-        readAppTheme = GetAppTheme(localUserManager),
         saveAppTheme = SaveAppTheme(localUserManager),
         getAppEntry = GetAppEntry(localUserManager),
-        saveAppEntry = SaveAppEntry(localUserManager)
+        saveAppEntry = SaveAppEntry(localUserManager),
+        getSavedTheme = GetSavedTheme(localUserManager) // Added GetSavedTheme use case
     )
-
 
     @Provides
     @Singleton

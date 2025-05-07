@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,6 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.shubhans.taskmanager.domain.model.Task
 import com.shubhans.taskmanager.presentation.components.TaskCircularProgress
 import com.shubhans.taskmanager.presentation.components.SortDropdown
@@ -32,6 +32,7 @@ import com.shubhans.taskmanager.presentation.components.EmptyScreen
 import com.shubhans.taskmanager.presentation.components.TaskCard
 import com.shubhans.taskmanager.presentation.components.TaskShimmerEffect
 import com.shubhans.taskmanager.presentation.components.FilterDropDown
+import com.shubhans.taskmanager.presentation.settings.ThemeViewModel
 
 @Composable
 fun SharedTransitionScope.HomeScreen(
@@ -40,8 +41,12 @@ fun SharedTransitionScope.HomeScreen(
     state: HomeState,
     onClick: (Task) -> Unit,
     event: (HomeEvent) -> Unit,
-    onRemoveClicked: (Task) -> Unit
+    onRemoveClicked: (Task) -> Unit,
+    viewModel: ThemeViewModel = hiltViewModel(),
 ) {
+// Observe the selected theme color from the ViewModel
+    val selectedThemeColor = viewModel.selectedTheme
+
     val tasks = state.tasks
     val progress = remember { mutableIntStateOf(0) }
     val completedTasks = tasks.filter { it.done }
@@ -91,7 +96,7 @@ fun SharedTransitionScope.HomeScreen(
                     }
                     TaskCircularProgress(
                         initialValue = progress,
-                        primaryColor = MaterialTheme.colorScheme.primary,
+                        primaryColor = selectedThemeColor,
                         secondaryColor = Color.DarkGray,
                         circleRadius = 160f
                     )

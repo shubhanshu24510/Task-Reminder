@@ -1,6 +1,8 @@
 package com.shubhans.taskmanager.data.manager
 
 import android.content.Context
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -8,24 +10,20 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.shubhans.taskmanager.domain.manager.LocalUserManager
-import com.shubhans.taskmanager.domain.model.AppTheme
 import com.shubhans.taskmanager.presentation.util.Constants
 import com.shubhans.taskmanager.presentation.util.Constants.USER_SETTINGS
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 
 class LocalUserImpl(
     private val context: Context
-): LocalUserManager {
+) : LocalUserManager {
 
-    override suspend fun saveAppTheme(appTheme: String) {
+    override suspend fun saveAppTheme(appTheme: Color) {
+        // Save the ARGB value of the color as a string
         context.datastore.edit { settings ->
-            settings[PreferencesKeys.APP_THEME] = appTheme
-        }
-    }
-    override fun readAppTheme(): Flow<String> {
-        return context.datastore.data.map { preferences->
-            preferences[PreferencesKeys.APP_THEME] ?: AppTheme.LIGHT_FIRST.name
+            settings[PreferencesKeys.APP_THEME] = appTheme.toArgb().toString()
         }
     }
 
@@ -40,14 +38,19 @@ class LocalUserImpl(
             preferences[PreferencesKeys.APP_ENTRY] ?: false
         }
     }
+
+    override suspend fun readAppTheme(): Color? {
+        return context.datastore.data.map { preferences ->
+            preferences[PreferencesKeys.APP_THEME]?.toIntOrNull()?.let { Color(it) }
+        }.firstOrNull() // Get the first emitted value or null if no value exists
+    }
 }
 
 // Get instance of data store
 private val Context.datastore: DataStore<Preferences> by preferencesDataStore(name = USER_SETTINGS)
 
-// now we can simply access this data store with our context, But to save key value inside our data
-// store preference we also need thing called (Preference keys)
-private object PreferencesKeys{
-    val APP_THEME = stringPreferencesKey(Constants.APP_THEME)
-    val APP_ENTRY = booleanPreferencesKey(Constants.APP_ENTRY)
+// Preference keys for DataStore
+private object PreferencesKeys {
+    val APP_THEME = stringPreferencesKey(Constants.APP_THEME) // Key for app theme
+    val APP_ENTRY = booleanPreferencesKey(Constants.APP_ENTRY) // Key for app entry
 }

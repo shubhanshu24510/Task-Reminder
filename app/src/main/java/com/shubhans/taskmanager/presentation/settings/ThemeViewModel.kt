@@ -3,9 +3,9 @@ package com.shubhans.taskmanager.presentation.settings
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.shubhans.taskmanager.domain.model.AppTheme
 import com.shubhans.taskmanager.domain.usecases.app_theme.ThemeUseCases
 import com.shubhans.taskmanager.presentation.navgraph.Route
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,17 +16,18 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ThemeViewModel @Inject constructor(
-    private val themeUseCases: ThemeUseCases
+    private val themeUseCases: ThemeUseCases,
 ) : ViewModel() {
-    private val _selectedTheme = mutableStateOf(AppTheme.LIGHT_FIRST)
-    val selectedTheme = _selectedTheme
+
+    var selectedTheme by mutableStateOf<Color>(Color(0xFF6200EE))
+        private set
 
     var startDestination by mutableStateOf<Route?>(null)
         private set
 
     init {
         getAppEntry()
-        getTheme()
+        loadSavedTheme() // Load the saved theme at initialization
     }
 
     private fun getAppEntry() {
@@ -36,17 +37,17 @@ class ThemeViewModel @Inject constructor(
         }.launchIn(viewModelScope)
     }
 
-    private fun getTheme() {
+    private fun loadSavedTheme() {
         viewModelScope.launch {
-            themeUseCases.readAppTheme().collect {
-                _selectedTheme.value = AppTheme.valueOf(it)
-            }
+            val savedTheme = themeUseCases.getSavedTheme() // Use case to get the saved theme
+            selectedTheme = savedTheme ?: Color(0xFF6200EE) // Use saved theme or default
         }
     }
 
-    fun updateTheme(appTheme: AppTheme) {
+    fun updateTheme(appTheme: Color) {
+        selectedTheme = appTheme // Update the current theme
         viewModelScope.launch {
-            themeUseCases.saveAppTheme(appTheme.name)
+            themeUseCases.saveAppTheme(appTheme) // Save the theme to persistent storage
         }
     }
 }

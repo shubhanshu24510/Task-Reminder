@@ -13,6 +13,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.shubhans.taskmanager.R
 
 @Composable
@@ -22,14 +23,17 @@ fun SortDropdown(onSortClicked: (Int) -> Unit) {
 
     Box {
         IconButton(onClick = { expanded = true }) {
-            Icon(painter = painterResource(R.drawable.ic_filter_list), contentDescription = "Filter icon", tint = Color.Black)
+            Icon(
+                painter = painterResource(R.drawable.ic_filter_list),
+                contentDescription = stringResource(R.string.filter)
+            )
         }
         DropdownMenu(expanded = expanded, onDismissRequest = { expanded = false }) {
-            sortOptions.forEachIndexed { index ,option ->
+            sortOptions.forEachIndexed { index, option ->
                 DropdownMenuItem(
                     text = { Text(option) },
                     onClick = {
-                       onSortClicked(index)
+                        onSortClicked(index)
                         expanded = false
                     }
                 )

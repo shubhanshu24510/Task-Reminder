@@ -9,4 +9,5 @@
     <string name="task_title">Title</string>
     <string name="select_theme">Select Theme</string>
     <string name="save">Save</string>
+    <string name="filter">Filter Icon</string>
 </resources>

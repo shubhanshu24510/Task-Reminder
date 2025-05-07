@@ -34,6 +34,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -101,12 +102,12 @@ fun TasksNavGraph() {
                                 }) {
                                     Icon(
                                         Icons.Default.Settings,
-                                        contentDescription = null,
-                                        tint = Color.Black
+                                        contentDescription = null
                                     )
                                 }
                             })
                     },
+                    // ADD Button Floating Action Button
                     floatingActionButton = {
                         FloatingActionButton(
                             onClick = {
@@ -115,7 +116,11 @@ fun TasksNavGraph() {
                             containerColor = Color.White,
                             contentColor = MaterialTheme.colorScheme.primary
                         ) {
-                            Icon(Icons.Default.Add, contentDescription = null)
+                            Icon(
+                                Icons.Default.Add,
+                                tint = themeViewModel.selectedTheme,
+                                contentDescription = null
+                            )
                         }
                     }) { innerPadding ->
                     HomeScreen(
@@ -123,7 +128,6 @@ fun TasksNavGraph() {
                         state = homeViewModel.state.value,
                         modifier = Modifier.padding(innerPadding),
                         onClick = {
-//                            navigateToDetails(navController = navController, task = it)
                             task = it
                             showDialog.value = true
 
@@ -161,6 +165,7 @@ fun TasksNavGraph() {
                 }
             ) {
                 SettingsScreen(
+                    navController = navController,
                     viewModel = themeViewModel,
                     navigateUp = {
                         navController.navigate(Route.Home) {
