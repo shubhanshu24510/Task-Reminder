@@ -21,6 +21,15 @@
 
 ---
 
+---
+## ✨ **Screenshots**
+<!-- Simulate light green background using an image row with alt text -->
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/231428ac-91a5-412b-864d-b7d040fd2e56" alt="screen-2" width="260"/>
+  <img src="https://github.com/user-attachments/assets/783c2007-7047-472c-98cc-20a1f0eca3db" alt="screen-1" width="260"/>
+</p>
+---
+
 ## ✨ **What Does It Do?**
 * **Organize Your Life**: Add, edit, and manage tasks through an intuitive and responsive interface.
 * **Stay Notified**: Set reminders and alarms so you never miss an important deadline.
