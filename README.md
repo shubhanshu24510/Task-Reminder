@@ -37,12 +37,12 @@
 
 ---
 
-## ✅ What Does It Do?
+## ✅ **What Does It Do?**
 
-- 📝 Add, edit, and manage tasks with ease.
-- ⏰ Set alarms and receive timely notifications.
-- 🌐 Offline-first with Room DB for full offline support.
-- 📊 Beautiful Circular Progress Bar to track task completion.
+* 📋 **Organize Your Life**: Add, edit, and manage tasks with a smooth and intuitive UI.
+* 🔔 **Get Reminded**: Set reminders that work offline using Alarm Manager & Notification Services.
+* 📴 **Offline First**: Store tasks locally with Room DB, no internet needed.
+* 📈 **Track Progress**: Beautiful circular progress indicators reflect your productivity.
 
 ---
 
