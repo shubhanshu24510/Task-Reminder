@@ -28,11 +28,11 @@
 
 ---
 
-## 🖼️ Screenshots
+## 📱 Screenshots
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/231428ac-91a5-412b-864d-b7d040fd2e56" width="300"/>
-  <img src="https://github.com/user-attachments/assets/783c2007-7047-472c-98cc-20a1f0eca3db" width="300"/>
+  <img src="https://github.com/user-attachments/assets/231428ac-91a5-412b-864d-b7d040fd2e56" alt="screen-1" height="800"/>
+  <img src="https://github.com/user-attachments/assets/783c2007-7047-472c-98cc-20a1f0eca3db" alt="screen-2" height="800"/>
 </p>
 
 ---
