@@ -1,4 +1,4 @@
-<h1 align="center">📌 Task Reminder 🚀</h1>
+<h1 align="center">📋 Task Reminder </h1>
 
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0">
