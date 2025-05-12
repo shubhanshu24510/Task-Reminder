@@ -118,7 +118,15 @@ More on modularization: [Google Guide](https://developer.android.com/topic/modul
 
 ## 🤝 Support
 
-If you like the project, consider ⭐ starring the repo and [following me](https://github.com/shubhanshu24510) for more cool Android projects!
+If you like the project, consider ⭐ starring the repo and following me for more cool Android projects!
+
+☕ You can also support me by buying me a coffee:
+
+<p>
+  <a href="https://www.buymeacoffee.com/shubhanshu24510" target="_blank">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;">
+  </a>
+</p>
 
 ---
 
